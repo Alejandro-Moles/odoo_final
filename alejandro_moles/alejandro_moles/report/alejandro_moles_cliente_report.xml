@@ -1,0 +1,32 @@
+<odoo>
+    <record id="alejandro_moles.cliente_report" model="ir.actions.report">
+        <field name="name"> Datos delcliente</field>
+        <field name="model">alejandro_moles.cliente</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">alejandro_moles.cliente_report_view</field>
+        <field name="report_file">alejandro_moles.cliente_report</field>
+        <field name="binding_model_id" ref="model_alejandro_moles_cliente"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="cliente_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Datos del cliente </h1><br />
+                <t t-foreach="docs" t-as="cliente">
+                    <ul>
+                        <li>    Dni del cliente : <span t-field="cliente.name" /></li>
+                        <li>    Dni del cliente : <span t-field="cliente.persona_id" /></li>
+                        <li>    Nombre del cliente : <span t-field="cliente.persona_id.nombre" /></li>
+                        <li>    Fecha de nacimiento del cliente : <span t-field="cliente.persona_id.fecha_nacimiento" /></li>
+                        
+
+                    
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

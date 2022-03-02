@@ -1,0 +1,398 @@
+<odoo>
+  <data>
+<!--VISTA DEL MODELO DE LIBRO-->
+
+    <record model="ir.ui.view" id="alejandro_moles.libros_list_view">
+      <field name="name">alejandro_moles.libros.view.tree</field>
+      <field name="model">alejandro_moles.libros</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="titulo"/>
+           <field name="precio"/>
+           <field name="genero"/>
+           <field name="libros_autores"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="alejandro_moles.libros_search_view">
+      <field name="name">alejandro_moles.libros.view.search</field>
+      <field name="model">alejandro_moles.libros</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="titulo"/>
+           <field name="precio"/>
+           <field name="genero"/>
+           <field name="libros_autores"/>
+          <group>
+            <filter name="group_by_titulo" string="titulo" context="{'gropup_by':'titulo'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="alejandro_moles.libros_form_view">
+      <field name="name">alejandro_moles.libros.view.form</field>
+      <field name="model">alejandro_moles.libros</field>
+      <field name="arch" type="xml">
+        <form string="Información libros">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                ISBN del libro <field name="name" placeholder="ISBN"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="titulo" placeholder="titulo"/>
+                 <field name="precio"/>
+                  <field name="genero"/>
+                  <field name="libros_autores"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+<!--VISTA DEL MODELO DE BIBLIOTECA-->
+ 
+    <record model="ir.ui.view" id="alejandro_moles.biblioteca_list_view">
+      <field name="name">alejandro_moles.biblioteca.view.tree</field>
+      <field name="model">alejandro_moles.biblioteca</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="libros"/>
+        </tree>
+      </field>
+    </record>
+
+  <!-- search -->
+
+    <record model="ir.ui.view" id="alejandro_moles.biblioteca_search_view">
+      <field name="name">alejandro_moles.biblioteca.view.search</field>
+      <field name="model">alejandro_moles.biblioteca</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="libros"/>
+          
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="alejandro_moles.biblioteca_form_view">
+      <field name="name">alejandro_moles.biblioteca.view.form</field>
+      <field name="model">alejandro_moles.biblioteca</field>
+      <field name="arch" type="xml">
+        <form string="Información biblioteca">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Id biblioteca <field name="name" placeholder="name"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre"/>
+                <field name="libros"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+<!--VISTA DEL MODELO DE PERSONA-->
+
+    <record model="ir.ui.view" id="alejandro_moles.persona_list_view">
+      <field name="name">alejandro_moles.persona.view.tree</field>
+      <field name="model">alejandro_moles.persona</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+           <field name="fecha_nacimiento"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="alejandro_moles.persona_search_view">
+      <field name="name">alejandro_moles.persona.view.search</field>
+      <field name="model">alejandro_moles.persona</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="fecha_nacimiento"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="alejandro_moles.persona_form_view">
+      <field name="name">alejandro_moles.persona.view.form</field>
+      <field name="model">alejandro_moles.persona</field>
+      <field name="arch" type="xml">
+        <form string="Información persona">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Dni de la Persona <field name="name" placeholder="Dni"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+                 <field name="fecha_nacimiento"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="alejandro_moles.persona_calendar_view">
+      <field name="name">alejandro_moles.persona.view.calendar</field>
+      <field name="model">alejandro_moles.persona</field>
+      <field name="arch" type="xml">
+        <calendar string="Fecha de nacimiento" date_start="fecha_nacimiento" color="nombre" mode="month">
+          <field name="name"/>
+          <field name="nombre"/>
+        </calendar>
+      </field>
+    </record>
+
+
+<!-- VISTA DEL MODELO DE CLIENTE -->
+    
+    <record model="ir.ui.view" id="alejandro_moles.cliente_list_view">
+      <field name="name">alejandro_moles.cliente.view.tree</field>
+      <field name="model">alejandro_moles.cliente</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="persona_id"/>
+        
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="alejandro_moles.cliente_search_view">
+      <field name="name">alejandro_moles.cliente.view.search</field>
+      <field name="model">alejandro_moles.cliente</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="persona_id"/>
+          <group>
+            <filter name="group_by_name" string="name" context="{'gropup_by':'name'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="alejandro_moles.cliente_form_view">
+      <field name="name">alejandro_moles.cliente.view.form</field>
+      <field name="model">alejandro_moles.cliente</field>
+      <field name="arch" type="xml">
+        <form string="Información cliente">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Codigo del cliente <field name="name" placeholder="codigo"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+               
+                  <field name="persona_id"/>
+
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+    <!-- VISTA DEL MODELO DE FACTURAS  -->
+    
+    
+        
+    <record model="ir.ui.view" id="alejandro_moles.factura_list_view">
+      <field name="name">alejandro_moles.factura.view.tree</field>
+      <field name="model">alejandro_moles.factura</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="cantidad"/>
+          <field name="cliente_id" />
+          <field name="libro_id" />
+          <field name="iva" />
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="alejandro_moles.factura_search_view">
+      <field name="name">alejandro_moles.factura.view.search</field>
+      <field name="model">alejandro_moles.factura</field>
+      <field name="arch" type="xml">
+        <search>
+           <field name="name"/>
+          <field name="cantidad"/>
+          <field name="cliente_id" />
+          <field name="libro_id" />
+          <field name="iva" />
+          <group>
+            <filter name="group_by_cantidad" string="cantidad" context="{'gropup_by':'cantidad'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="alejandro_moles.factura_form_view">
+      <field name="name">alejandro_moles.factura.view.form</field>
+      <field name="model">alejandro_moles.factura</field>
+      <field name="arch" type="xml">
+        <form string="Información factura">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Código de la Factura<field name="name" placeholder="codigo"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="cantidad"/>
+                <field name="cliente_id" />
+                <field name="libro_id" />
+                <field name="iva" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+
+   <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <!--Menu de libro-->
+
+    <record model="ir.actions.act_window" id="alejandro_moles.libros_action_window">
+      <field name="name">Libros</field>
+      <field name="res_model">alejandro_moles.libros</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="alejandro_moles" id="alejandro_moles.menu_root"/>
+
+    <menuitem name="libros" id="alejandro_moles.menu_libros" parent="alejandro_moles.menu_root"/>
+    <menuitem name="List" id="alejandro_moles.menu_libros_list" parent="alejandro_moles.menu_libros"
+              action="alejandro_moles.libros_action_window"/>
+
+
+    <!--Menu de biblioteca-->
+     <record model="ir.actions.act_window" id="alejandro_moles.biblioteca_action_window">
+      <field name="name">Biblioteca</field>
+      <field name="res_model">alejandro_moles.biblioteca</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="bibliotecaes" id="alejandro_moles.menu_biblioteca" parent="alejandro_moles.menu_root"/>
+    <menuitem name="List" id="alejandro_moles.menu_biblioteca_list" parent="alejandro_moles.menu_biblioteca"
+              action="alejandro_moles.biblioteca_action_window"/>
+
+
+    <!--Menu de Persona-->
+      <record model="ir.actions.act_window" id="alejandro_moles.persona_action_window">
+      <field name="name">Persona</field>
+      <field name="res_model">alejandro_moles.persona</field>
+      <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem name="persona" id="alejandro_moles.menu_persona" parent="alejandro_moles.menu_root"/>
+
+      <menuitem name="List" id="alejandro_moles.menu_persona_list" parent="alejandro_moles.menu_persona"
+              action="alejandro_moles.persona_action_window"/>  
+
+
+    <record model="ir.actions.act_window" id="alejandro_moles.cliente_action_window">
+      <field name="name">cliente</field>
+      <field name="res_model">alejandro_moles.cliente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Cliente" id="alejandro_moles.menu_cliente" parent="alejandro_moles.menu_root"/>
+
+    <menuitem name="List" id="alejandro_moles.menu_cliente_list" parent="alejandro_moles.menu_cliente"
+              action="alejandro_moles.cliente_action_window"/>  
+
+
+
+
+
+    <record model="ir.actions.act_window" id="alejandro_moles.factura_action_window">
+      <field name="name">factura</field>
+      <field name="res_model">alejandro_moles.factura</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="factura" id="alejandro_moles.menu_factura" parent="alejandro_moles.menu_root"/>
+    <menuitem name="List" id="alejandro_moles.menu_factura_list" parent="alejandro_moles.menu_factura"
+              action="alejandro_moles.factura_action_window"/>
+
+  </data>
+</odoo>

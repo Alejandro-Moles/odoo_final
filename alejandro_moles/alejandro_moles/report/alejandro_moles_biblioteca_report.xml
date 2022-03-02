@@ -1,0 +1,29 @@
+<odoo>
+    <record id="alejandro_moles.biblioteca_report" model="ir.actions.report">
+        <field name="name"> Datos de la Biblioteca</field>
+        <field name="model">alejandro_moles.biblioteca</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">alejandro_moles.biblioteca_report_view</field>
+        <field name="report_file">alejandro_moles.biblioteca_report</field>
+        <field name="binding_model_id" ref="model_alejandro_moles_biblioteca"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="biblioteca_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Datos de la Biblioteca </h1><br />
+                <t t-foreach="docs" t-as="biblioteca">
+                    <ul>
+                        <li>    Codigo de la Biblioteca : <span t-field="biblioteca.name" /></li>
+                        <li>    Nombre de la Biblioteca : <span t-field="biblioteca.nombre" /></li>
+                        
+                    
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

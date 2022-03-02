@@ -1,0 +1,34 @@
+<odoo>
+    <record id="alejandro_moles.libros_report" model="ir.actions.report">
+        <field name="name"> Datos del libro</field>
+        <field name="model">alejandro_moles.libros</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">alejandro_moles.libros_report_view</field>
+        <field name="report_file">alejandro_moles.libros_report</field>
+        <field name="binding_model_id" ref="model_alejandro_moles_libros"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="libros_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Datos del Libro </h1><br />
+                <t t-foreach="docs" t-as="libros">
+                    <ul>
+                        <li>    ISBN del libro : <span t-field="libros.name" /></li>
+                        <li>    Titulo del libro : <span t-field="libros.titulo" /></li>
+                        <li>    Precio del libro : <span t-field="libros.precio" /></li>
+                        <li>    Genero del libro : <span t-field="libros.genero" /></li>
+                        <li>    Dni del Autor del libro : <span t-field="libros.libros_autores" /></li>
+                    
+                        <li>     <span t-field="libros.esCaro" /></li>
+
+
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
